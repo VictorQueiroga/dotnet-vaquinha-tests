@@ -66,8 +66,9 @@ namespace Vaquinha.Unit.Tests.DomainTests
         [Trait("Doacao", "Doacao_ValoresDoacaoMenorIgualZero_DoacaoInvalida")]
         public void Doacao_ValoresDoacaoMenorIgualZero_DoacaoInvalida(double valorDoacao)
         {
+            const bool EMAIL_INVALIDO = false;
             // Arrange            
-            var doacao = _doacaoFixture.DoacaoValida(false, valorDoacao);
+            var doacao = _doacaoFixture.DoacaoValida(EMAIL_INVALIDO, valorDoacao);
             doacao.AdicionarEnderecoCobranca(_enderecoFixture.EnderecoValido());
             doacao.AdicionarFormaPagamento(_cartaoCreditoFixture.CartaoCreditoValido());
 
@@ -90,8 +91,9 @@ namespace Vaquinha.Unit.Tests.DomainTests
         public void Doacao_ValoresDoacaoMaiorLimite_DoacaoInvalida(double valorDoacao)
         {
             // Arrange
+            const bool EMAIL_INVALIDO = false;
             const bool EXCEDER_MAX_VALOR_DOACAO = true;
-            var doacao = _doacaoFixture.DoacaoValida(false, valorDoacao);
+            var doacao = _doacaoFixture.DoacaoValida(EMAIL_INVALIDO, valorDoacao,EXCEDER_MAX_VALOR_DOACAO);
             doacao.AdicionarEnderecoCobranca(_enderecoFixture.EnderecoValido());
             doacao.AdicionarFormaPagamento(_cartaoCreditoFixture.CartaoCreditoValido());
 
@@ -105,12 +107,13 @@ namespace Vaquinha.Unit.Tests.DomainTests
         }
 
         [Fact]
-        [Trait("Doacao", "Doacao_MensagemApoioMaxlenghtExecido_DoacaoInvalida")]
-        public void Doacao_MensagemApoioMaxlenghtExecido_DoacaoInvalida()
+        [Trait("Doacao", "Doacao_MensagemApoioMaxlenghtExedido_DoacaoInvalida")]
+        public void Doacao_MensagemApoioMaxlenghtExedido_DoacaoInvalida()
         {
             // Arrange
             const bool EXCEDER_MAX_LENTH_MENSAGEM_APOIO = true;
-            var doacao = _doacaoFixture.DoacaoValida(false, null, EXCEDER_MAX_LENTH_MENSAGEM_APOIO);
+            const bool EMAIL_INVALIDO = false;
+            var doacao = _doacaoFixture.DoacaoValida(EMAIL_INVALIDO, null, EXCEDER_MAX_LENTH_MENSAGEM_APOIO);
             doacao.AdicionarEnderecoCobranca(_enderecoFixture.EnderecoValido());
             doacao.AdicionarFormaPagamento(_cartaoCreditoFixture.CartaoCreditoValido());
 

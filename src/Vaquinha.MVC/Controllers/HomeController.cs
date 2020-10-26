@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NToastNotify;
-using System.Threading.Tasks;
 using Vaquinha.Domain;
+using System.Threading.Tasks;
 
 namespace Vaquinha.MVC.Controllers
 {
@@ -23,7 +23,7 @@ namespace Vaquinha.MVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var homeViewModel = await _homeService.RecuperarDadosIniciaisHomeAsync();
+            var homeViewModel =  await _homeService.RecuperarDadosIniciaisHomeAsync();
 
             return View(homeViewModel);
         }

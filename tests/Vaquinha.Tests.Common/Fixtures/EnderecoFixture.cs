@@ -1,8 +1,5 @@
 ﻿using Bogus;
-using Bogus.DataSets;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 using Vaquinha.Domain.Entities;
 using Vaquinha.Domain.ViewModels;

@@ -1,7 +1,4 @@
 ﻿using FluentAssertions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 using Vaquinha.Tests.Common.Fixtures;
 namespace Vaquinha.Unit.Tests.DomainTests
